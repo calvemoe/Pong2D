@@ -17,14 +17,18 @@ public class Ball : MonoBehaviour {
 
     private Rigidbody2D rb;
 
+    //move direction
+    private static int left = -1;
+    private static int right = 1;
+
     // Use this for initialization
     void Start () {
         rb = GetComponent<Rigidbody2D>();
 
-        //apply speed to ball
+        //randomize applying speed to ball in two directions
         rb.velocity = new Vector2(
-            Random.Range(minXSpeed, maxXSpeed) * Random.value > 0.5f ? -1 : 1, 
-            Random.Range(minYSpeed, maxYSpeed) * Random.value > 0.5f ? -1 : 1
+            Random.Range(minXSpeed, maxXSpeed) * Random.value > 0.5f ? left : right, 
+            Random.Range(minYSpeed, maxYSpeed) * Random.value > 0.5f ? left : right
         );
 	}
 	

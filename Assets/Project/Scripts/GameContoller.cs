@@ -21,6 +21,9 @@ public class GameContoller : MonoBehaviour {
     private int score1 = 0;
     private int score2 = 0;
 
+    //const
+    private static int MAXSCORE = 99;
+
 	// Use this for initialization
 	void Start () {
 
@@ -48,6 +51,9 @@ public class GameContoller : MonoBehaviour {
             {
                 //scoring for player 1
                 score1++;
+                if (score1 > MAXSCORE)
+                    score1 = 0;
+                
                 //destroy ball after scoring
                 Destroy(currentBall.gameObject);
                 //create new ball on game scene
@@ -58,6 +64,9 @@ public class GameContoller : MonoBehaviour {
             {
                 //scoring for player 2
                 score2++;
+                if (score2 > MAXSCORE)
+                    score2 = 0;
+
                 //destroy ball after scoring
                 Destroy(currentBall.gameObject);
                 //create new ball on game scene
